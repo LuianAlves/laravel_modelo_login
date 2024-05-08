@@ -91,7 +91,6 @@ $(() => {
         });
     }
 
-
     // Modal Edit
     $(tableId).on("click", ".editbtn", function () {
         alertEmpty();
