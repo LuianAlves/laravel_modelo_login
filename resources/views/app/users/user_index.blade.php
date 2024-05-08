@@ -46,5 +46,6 @@
 
         <script type="module" src="{{ asset('assets/js/view/user.js') }}"></script>
         @include('app.users.user_modal')
+        @include('common.modal.delete')
     @endsection
 </x-app-layout>

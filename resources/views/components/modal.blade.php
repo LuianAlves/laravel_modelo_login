@@ -12,12 +12,13 @@
             @endif
 
             <div class="modal-body p-0">
+                <x-alert id="alert-error"/>
+
                 <div class="card card-plain">
                     <div class="card-header pb-0 text-left">
                         <h3 class="font-weight-bolder text-primary text-gradient modal-title text-center"></h3>
                     </div>
                     <div class="card-body pb-3">
-                        <x-alert id="alert-error"/>
                         {{ $slot }}
                     </div>
                     <div class="modal-footer">

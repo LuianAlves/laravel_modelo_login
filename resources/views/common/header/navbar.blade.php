@@ -2,26 +2,48 @@
      navbar-scroll="true">
     <div class="container-fluid py-1 px-3">
 
-       <x-breadcrumb></x-breadcrumb>
+        <x-breadcrumb></x-breadcrumb>
 
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group">
                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                    <input type="text" class="form-control" placeholder="Type here...">
+                    <input type="text" class="form-control form-control-sm" placeholder="Pesquisar...">
                 </div>
             </div>
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
-                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                       href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
+                    <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="#">SUPORTE</a>
                 </li>
+
                 <li class="nav-item d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                        <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Sign In</span>
-                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle nav-link text-body font-weight-bold px-0"
+                           data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">{{ucwords(Auth::user()->name)}}</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li>
+                                <a class="dropdown-item" href="{{route('profile.show')}}">
+                                    <i class="fa-solid fa-user text-gradient text-dark mx-2"></i> Minha conta
+                                </a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+
+                                    <button type="submit" class="dropdown-item text-gradient text-danger" href="{{route('logout')}}">
+                                        <i class="fa-solid fa-right-from-bracket mx-2"></i> Deslogar
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
                 </li>
+
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                         <div class="sidenav-toggler-inner">
@@ -86,7 +108,7 @@
                                     <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
                                              xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        >
                                             <title>credit-card</title>
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"

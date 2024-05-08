@@ -43,8 +43,7 @@
 
             <li class="nav-item">
                 <a class="nav-link {{ currentRoute() == 'usuario-web.index' ? 'active' : '' }}" href="{{route('usuario-web.index')}}">
-                    <div
-                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                    <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <span class="nav-link-text ms-1">Usuários</span>

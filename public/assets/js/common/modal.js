@@ -5,6 +5,8 @@ export function openModalCreate(input, value = null, text, formId, modalId) {
 
     $(formId)[0].reset();
 
+    $(formId + " input").prop('disabled', false);
+
     $("input[name=" + input + "]").val(value);
 
     $(modalId + " .modal-title").text("Cadastrar " + text);

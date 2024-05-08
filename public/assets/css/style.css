@@ -11,7 +11,7 @@
     height: calc(100vh - 36vh);
 }
 
-/* TABLE */
+/* BUTTON */
 .dropdown-table .dropdown-toggle {
     padding: 7.5px 10px;
     border-radius: 50%;
@@ -21,7 +21,40 @@
     margin-right: 7.5px;
 }
 
+.dropdown-divider {
+    border-top: 1px solid rgba(231, 231, 231, 0.68);
+}
+
+/* TABLE */
+table .dropdown-toggle::after {
+    display: none;
+}
+
 /* MODAL */
-.modal-title {
+.modal-content {
+    border-radius: 1rem;
+}
+
+.card-header h3 {
     font-size: 24px;
+}
+
+/* INPUT */
+.form-switch .form-check-input:checked {
+    border-color: rgba(58, 65, 111, 0.95);
+    background-color: rgba(58, 65, 111, 0.95);
+}
+
+/* ALERT */
+.alert {
+    font-weight: 600;
+    font-size: 14.5px;
+    margin: 0;
+    border-radius: 1rem;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.alert-success, .alert-danger, .alert-info {
+    color: #fff;
 }

@@ -21669,7 +21669,7 @@ table .btn-sm {
     background-color: #fff;
     transform: translateX(1px);
     box-shadow: 0 0.3125rem 0.625rem 0 rgba(0, 0, 0, 0.12);
-    top: 1px;
+    top: 2px;
 }
 
 .form-switch .form-check-input:checked:after {
@@ -21677,8 +21677,7 @@ table .btn-sm {
 }
 
 .form-switch .form-check-input:checked {
-    border-color: rgba(58, 65, 111, 0.95);
-    background-color: rgba(58, 65, 111, 0.95);
+    background-image: linear-gradient(310deg, #7928CA 0%, #FF0080 100%);
 }
 
 .form-select {
