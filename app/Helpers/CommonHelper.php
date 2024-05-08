@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,10 @@ function currentRoute()
     $route = Route::current()->getName();
 
     return $route;
+}
+
+function humansDate($data) {
+    $humansDate = Carbon::parse($data)->diffForHumans();
+
+    return $humansDate;
 }

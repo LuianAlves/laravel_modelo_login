@@ -1,4 +1,4 @@
-import {deleteBtn, editBtn} from "../common/button.js";
+import {deleteBtn, editBtn, viewBtn} from "../common/button.js";
 import {openModalCreate} from "../common/modal.js";
 import {alert, alertEmpty, alertError, removeErrorModal} from "../common/alert.js";
 
@@ -15,14 +15,15 @@ $(() => {
             success: function (response) {
                 $(tableId + " tbody").empty();
 
-                if (Array.isArray(response.data)) {
-                    response.data.forEach(function (data) {
+                if (Array.isArray(response.data.data)) {
+                    response.data.data.forEach(function (data) {
 
-                        var newRow = $('<tr class="text-center" data-id="' + data.id + '">' +
+                        var newRow = $('<tr data-id="' + data.id + '">' +
                             '<td><div class="d-flex px-2 py-1"><div><img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1"></div><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' + data.name + '</h6><p class="text-xs text-secondary mb-0">' + data.email + '</p></div></div></td>' +
-                            '<td><p class="text-xs font-weight-bold mb-0">Painel</p><p class="text-xs text-secondary mb-0">' + data.panel + '</p></td>' +
-                            '<td class="align-middle text-center text-sm"><span class="badge badge-sm bg-gradient-success">' + data.status + '</span></td>' +
-                            '<td class="align-middle text-center"><span class="text-secondary text-xs font-weight-bold">' + data.created_at + '</span></td>' +
+                            '<td class="text-center"><p class="text-xs font-weight-bold mb-0">Painel</p><p class="text-xs text-secondary text-uppercase mb-0">' + data.panel + '</p></td>' +
+                            '<td class="text-center align-middle text-sm"><span class="badge badge-sm bg-gradient-'+ (data.status == 'ativo' ? 'success' : 'dark') + '">' + data.status + '</span></td>' +
+                            '<td class="text-center align-middle"><span class="text-secondary text-xs font-weight-bold">' + data.humansDate + '</span></td>' +
+                            '<td class="text-center"><div class="dropdown dropdown-table"><a href="#" class="btn bg-gradient-primary dropdown-toggle" data-bs-toggle="dropdown" id="tableBtn"></a><ul class="dropdown-menu" aria-labelledby="tableBtn">'+ viewBtn() + editBtn() + deleteBtn() +'</ul></div></td>' +
                             '</tr>');
 
                         $(tableId + " tbody").append(newRow);

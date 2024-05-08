@@ -1,7 +1,11 @@
+export function viewBtn() {
+    return '<li><a href="#" class="dropdown-item viewbtn" data-toggle="tooltip" title="Visualizar"><i class="fa-solid fa-expand text-info fs-5"></i> Visualizar registro</a></li>';
+}
+
 export function editBtn() {
-    return '<a href="#" class="editbtn" data-toggle="tooltip" title="Editar"><i class="fa-regular fa-pen-to-square fa-lg text-success mx-3"></i></a>';
+    return '<li><a href="#" class="dropdown-item editbtn" data-toggle="tooltip" title="Editar"><i class="fa-solid fa-pen-to-square text-success fs-5"></i> Editar registro</a></li>';
 }
 
 export function deleteBtn() {
-    return '<a href="#" class="deletebtn" data-toggle="tooltip" title="Remover"><i class="fa-regular fa-trash-can fa-lg text-danger mx-3"></i></a>';
+    return '<li><a href="#" class="dropdown-item deletebtn" data-toggle="tooltip" title="Remover"><i class="fa-solid fa-trash-can text-danger fs-5"></i> Remover registro</a></li>';
 }

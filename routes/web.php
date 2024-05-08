@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 // Common
 use App\Http\Controllers\DashboardController;
 
-use App\Http\Controllers\WEB\UserController;
-
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -16,6 +14,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     // Users
-    Route::get('/usuario', [UserController::class, 'index'])->name('usuario-web.index');
-    Route::apiResource('/api/usuario', UserController::class);
+    Route::get('/usuario', [App\Http\Controllers\WEB\UserController::class, 'index'])->name('usuario-web.index');
+    Route::resource('/api/usuario', App\Http\Controllers\API\UserController::class)->except('create', 'edit');
 });

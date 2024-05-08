@@ -2,7 +2,7 @@
     @section('content-dashboard')
         <div class="row">
             <div class="col-12">
-                <div class="card mb-4">
+                <div class="card card-table">
                     <x-alert id="alert-response"/>
 
                     <x-card-header title="{{currentUrl()}}"></x-card-header>
@@ -13,7 +13,7 @@
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Usuário
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Permissão
                                 </th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\PanelTypeEnum;
+use App\Enums\UserStatusEnum;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -31,6 +33,8 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'status' => UserStatusEnum::INATIVO,
+            'panel' => PanelTypeEnum::APP,
             'two_factor_secret' => null,
             'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),

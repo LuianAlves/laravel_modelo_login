@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\HttpResponse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -18,7 +19,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = $this->user->paginate(5);
+        $user = $this->user->paginate(8);
+
+        $user->each(function ($user) {
+            $user->humansDate = humansDate($user->created_at);
+        });
 
         return $this->trait("get", $user);
     }
