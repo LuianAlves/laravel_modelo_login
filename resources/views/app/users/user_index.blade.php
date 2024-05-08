@@ -29,15 +29,22 @@
                         </x-slot>
                     </x-table>
 
-                    <x-table-paginate></x-table-paginate>
+{{--                    <x-table-paginate></x-table-paginate>--}}
                 </div>
             </div>
         </div>
 
         <script>
             var route = "{{ route('usuario.index') }}"
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var tableContainer = document.querySelector('.card-table');
+
+                new PerfectScrollbar(tableContainer);
+            });
         </script>
 
         <script type="module" src="{{ asset('assets/js/view/user.js') }}"></script>
+        @include('app.users.user_modal')
     @endsection
 </x-app-layout>

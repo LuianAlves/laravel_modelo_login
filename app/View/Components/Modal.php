@@ -10,13 +10,13 @@ class Modal extends Component
 {
     public $modalId;
     public $formId;
-    public $inputHidden;
+    public $input;
 
-    public function __construct($modalId, $formId, $inputHidden = null)
+    public function __construct($modalId, $formId, $input = null)
     {
         $this->modalId = $modalId;
         $this->formId = $formId;
-        $this->inputHidden = $inputHidden;
+        $this->input = $input;
     }
 
     public function render(): View|Closure|string

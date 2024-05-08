@@ -3,7 +3,7 @@
         <h5>{{"$title (s)"}}</h5>
         <div class="d-flex text-end">
             <x-search-table></x-search-table>
-            <button class="btn btn-sm btn-primary createbtn"><i class="fa-solid fa-plus-minus"></i></button>
+            <button type="button" class="btn btn-sm btn-primary createbtn" id="createbtn" ><i class="fa-solid fa-plus-minus"></i></button>
         </div>
     </div>
 </div>

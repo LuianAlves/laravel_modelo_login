@@ -5,8 +5,12 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\HttpResponse;
-use Carbon\Carbon;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use Laravel\Fortify\Fortify;
 
 class UserController extends Controller
 {
@@ -19,7 +23,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = $this->user->paginate(8);
+        $user = $this->user->latest()->get();
 
         $user->each(function ($user) {
             $user->humansDate = humansDate($user->created_at);
@@ -28,12 +32,21 @@ class UserController extends Controller
         return $this->trait("get", $user);
     }
 
-    public function store(Request $request)
+    public function store(Request         $request,
+                          CreatesNewUsers $creator): RegisterResponse
     {
+        if (config('fortify.lowercase_usernames')) {
+            $request->merge([
+                Fortify::username() => Str::lower($request->{Fortify::username()}),
+            ]);
+        }
 
+        event(new Registered($user = $creator->create($request->all())));
+
+        return app(RegisterResponse::class);
     }
 
-    public function show(string $id)
+    public function show($id)
     {
         $user = $this->user->find($id);
 
@@ -44,7 +57,7 @@ class UserController extends Controller
         }
     }
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }

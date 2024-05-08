@@ -9,7 +9,6 @@ use Illuminate\View\Component;
 class Input extends Component
 {
     public $id;
-    public $icon;
     public $name;
     public $label;
     public $type;
@@ -17,10 +16,9 @@ class Input extends Component
     public $set;
     public $placeholder;
 
-    public function __construct($col = null, $icon = null, $set = null, $placeholder = null, $id, $name, $label, $type)
+    public function __construct($col = null, $set = null, $placeholder = null, $id, $name, $label, $type)
     {
         $this->col = $col;
-        $this->icon = $icon;
         $this->set = $set;
         $this->placeholder = $placeholder;
         $this->id = $id;

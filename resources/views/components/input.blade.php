@@ -3,7 +3,6 @@
     <div class="input-group">
         <input type="{{ $type }}" class="form-control form-control-sm" id="{{ $id }}" name="{{ $name }}"
                placeholder="{{ $placeholder }}">
-        <span class="input-group-text" id="{{$id}}"><i class="{{$icon}}"></i></span>
     </div>
 </div>
 

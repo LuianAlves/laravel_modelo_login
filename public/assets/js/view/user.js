@@ -15,8 +15,8 @@ $(() => {
             success: function (response) {
                 $(tableId + " tbody").empty();
 
-                if (Array.isArray(response.data.data)) {
-                    response.data.data.forEach(function (data) {
+                if (Array.isArray(response.data)) {
+                    response.data.forEach(function (data) {
 
                         var newRow = $('<tr data-id="' + data.id + '">' +
                             '<td><div class="d-flex px-2 py-1"><div><img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1"></div><div class="d-flex flex-column justify-content-center"><h6 class="mb-0 text-sm">' + data.name + '</h6><p class="text-xs text-secondary mb-0">' + data.email + '</p></div></div></td>' +

@@ -8,8 +8,6 @@
 }
 
 .card-table .table-responsive {
-    overflow-y: auto;
-    overflow-x: hidden;
     height: calc(100vh - 36vh);
 }
 
@@ -21,4 +19,9 @@
 
 .dropdown-table a i {
     margin-right: 7.5px;
+}
+
+/* MODAL */
+.modal-title {
+    font-size: 24px;
 }
