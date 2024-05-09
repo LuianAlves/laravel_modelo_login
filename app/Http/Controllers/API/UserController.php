@@ -81,7 +81,7 @@ class UserController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
-        return $this->trait("store", $user);
+        return $this->trait("update", $user);
     }
 
     public function destroy($id)
@@ -94,7 +94,7 @@ class UserController extends Controller
 
             $user->delete();
 
-            return $this->trait("get", $user);
+            return $this->trait("delete", $user);
         }
     }
 }
